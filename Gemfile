@@ -7,6 +7,9 @@ gem 'therubyracer'
 gem 'haml'
 gem 'haml-edge'
 
+#authentication
+gem 'sorcery'
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 

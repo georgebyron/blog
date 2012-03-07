@@ -2,13 +2,30 @@
 <html>
 <head>
   <title>Blog</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag :defaults %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<header>
+		<div id="login_panel">
+			<% if current_user %>
+				Zalogowany jako <%= current_user.email %>
+				<%= link_to "Wyloguj", logout_path %>
+			<% else %>
+				<%= link_to "Zaloguj się", login_path %>
+				<%= link_to "Zarejestruj się", signup_path %>
+			<% end %>
+		</div>
+	</header>
+	<div id="alarms">
+		<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %>
+	</div>
+<div>
 <%= yield %>
+</div>
 
 </body>
 </html>
